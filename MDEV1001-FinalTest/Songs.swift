@@ -16,7 +16,6 @@ struct Songs: Codable {
     var composer: String
     var duration: String
     var genre: String
-    var isExplicit: BooleanLiteralType
     var label: String
     var rating: Double
     var releaseDate: String

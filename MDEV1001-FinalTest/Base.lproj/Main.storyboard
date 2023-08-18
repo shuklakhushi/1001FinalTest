@@ -241,7 +241,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ShowCell" rowHeight="80" id="i2v-Xh-YDN" customClass="ShowTableViewCell" customModule="MDEV1001_FinalTest" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SongCell" rowHeight="80" id="i2v-Xh-YDN" userLabel="SongCell" customClass="SongTableViewCell" customModule="MDEV1001_FinalTest" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="390" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="i2v-Xh-YDN" id="V2X-iU-bue">
@@ -269,10 +269,9 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="TitleLabel" destination="I4o-br-6yx" id="5Qw-97-s90"/>
-                                            <outlet property="episodesLabel" destination="FR2-AP-5db" id="Q5h-Zt-5vP"/>
-                                            <outlet property="originalRelaeseLabel" destination="9Oh-d5-ubt" id="F9d-GY-Gm9"/>
-                                            <outlet property="titleLabel" destination="I4o-br-6yx" id="CaX-pJ-HM2"/>
+                                            <outlet property="labelLabel" destination="9Oh-d5-ubt" id="FLd-sp-hTd"/>
+                                            <outlet property="ratingLabel" destination="FR2-AP-5db" id="E28-yd-mr4"/>
+                                            <outlet property="titleLabel" destination="I4o-br-6yx" id="29t-yh-6ja"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -286,6 +285,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="+"/>
+                                <connections>
+                                    <action selector="addButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fKW-QO-fnI"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Favourite Songs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y0c-Zx-Lhe">
                                 <rect key="frame" x="63" y="68" width="304" height="36"/>
@@ -309,6 +311,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="tableView" destination="dub-iw-kgB" id="HdV-gR-nhI"/>
                         <segue destination="fPb-KB-cW7" kind="show" identifier="AddEditSegue" id="1oH-P1-MK3"/>
                     </connections>
                 </viewController>
@@ -429,7 +432,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Edit Songs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ts-K7-xH1" userLabel="EditTVShowsLabel">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Edit Songs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ts-K7-xH1" userLabel="EditSongLabel">
                                 <rect key="frame" x="20" y="41" width="390" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
@@ -458,19 +461,6 @@
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="74L-Vf-vUZ" userLabel="TrackNumberTextField">
                                 <rect key="frame" x="19" y="646" width="183" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="isExplicit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WHJ-P6-q6J" userLabel="isExplicitLabel">
-                                <rect key="frame" x="227" y="622" width="183" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="um4-Zn-BRz" userLabel="isExplicitTextField">
-                                <rect key="frame" x="227" y="646" width="183" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -509,6 +499,9 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Cancel">
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="CancelButton_Pressed:" destination="fPb-KB-cW7" eventType="touchUpInside" id="JYc-8a-9yX"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OWO-HY-BQs" userLabel="UpdateButton">
                                 <rect key="frame" x="227" y="760" width="183" height="35"/>
@@ -518,12 +511,31 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Update">
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="UpdateButton_Pressed:" destination="fPb-KB-cW7" eventType="touchUpInside" id="oC9-EB-8kZ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ktz-LY-0kQ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="LHg-fL-6tK"/>
+                    <connections>
+                        <outlet property="AddEditTitleLabel" destination="0Ts-K7-xH1" id="AqT-Ft-5Yd"/>
+                        <outlet property="UpdateButton" destination="OWO-HY-BQs" id="7G8-Su-hDi"/>
+                        <outlet property="albumTextField" destination="dU5-mq-t7W" id="TSw-Df-vKb"/>
+                        <outlet property="artistTextField" destination="P0J-AI-5ZA" id="lng-pe-CJU"/>
+                        <outlet property="composerTextField" destination="xuv-uZ-bc9" id="DRn-Il-uae"/>
+                        <outlet property="durationTextField" destination="mRF-wW-FuE" id="d1W-ma-haY"/>
+                        <outlet property="genreTextField" destination="bKa-Lw-U7B" id="OnA-cq-f7b"/>
+                        <outlet property="labelTextField" destination="Od2-7k-qVG" id="6hS-nN-6uZ"/>
+                        <outlet property="ratingTextField" destination="yrT-cJ-YGh" id="4kE-fq-aZd"/>
+                        <outlet property="releaseDateTextField" destination="Eg9-K8-YmO" id="f8l-M2-l9U"/>
+                        <outlet property="songIDTextField" destination="Flx-9Q-P4O" id="ysP-cy-X9Z"/>
+                        <outlet property="titleTextField" destination="H4X-ix-SZ8" id="pps-Ml-9hA"/>
+                        <outlet property="trackNumberTextField" destination="74L-Vf-vUZ" id="tby-b1-pPj"/>
+                        <outlet property="youtubeLinkTextField" destination="7e2-Bt-DGv" id="d90-O1-hHq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9dU-V3-JRC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
